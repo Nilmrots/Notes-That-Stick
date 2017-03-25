@@ -1,24 +1,34 @@
 class Note
 {
   final int side = 100;
-  ArrayList<Character> words;
+  char[] words;
+  int wpoint;
   color clr;
   int x;
   int y;
   Note()
   {
-    words = new ArrayList<Character>();
-    clr = color(200,200,120);
+    words = new char[100];
+    wpoint = 0;
+    clr = color(240,240,120);
     x = 50;
     y = 50;
   }
   void addChar(char c)
   {
-    words.add(c);
+    if(wpoint<words.length)
+    {
+      words[wpoint]=c;
+      wpoint++;
+    }
   }
   void removeChar()
   {
-    words.remove(words.size()-1);
+    if(wpoint>0)
+    {
+      words[wpoint-1]=' ';
+      wpoint--;
+    }
   }
   void moveToMouse()
   {
@@ -30,5 +40,7 @@ class Note
     noStroke();
     fill(clr);
     rect(x,y,side,side);
+    fill(0);
+    text(new String(words),x,y,side,side);
   }
 }

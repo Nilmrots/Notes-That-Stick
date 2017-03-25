@@ -28,7 +28,7 @@ void draw (){
   }
   rect(x,y,200,100);
 }
-void mouseClicked(){
+void mousePressed(){
   if (mouseX>x & mouseX<x+200 & mouseY>y & mouseY<y+100){
     if (state==0){
       state=1;
@@ -46,4 +46,15 @@ void mouseClicked(){
 void mouseReleased()
 {
   selected = 2;
+}
+void keyPressed()
+{
+  if(keyCode == BACKSPACE)
+  {
+    nn.removeChar();
+  }
+  else
+  {
+    nn.addChar(key);
+  }
 }
