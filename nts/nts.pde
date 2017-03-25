@@ -4,19 +4,21 @@ int x = 150;
 int y = 150;
 Note nn = new Note();
 void setup (){
-  size(600,600);
+  size(600,750);
   frameRate(30);
   noStroke();
 }
 void draw (){
-  if (selected == 0)
-  {
-    x=mouseX;
-    y=mouseY;
-  }
-  else if(selected == 1)
-  {
-    nn.moveToMouse();
+  if (mouseX>0 & mouseY>0 & mouseX<500 & mouseY<650){
+    if (selected == 0)
+    {
+      x=mouseX;
+      y=mouseY;
+    }
+    else if(selected == 1)
+    {
+      nn.moveToMouse();
+    }
   }
   background(255,255,255);
   nn.show();
@@ -53,7 +55,7 @@ void keyPressed()
   {
     nn.removeChar();
   }
-  else
+  else if(keyCode != SHIFT)
   {
     nn.addChar(key);
   }
