@@ -8,7 +8,8 @@ void setup (){
   frameRate(30);
   noStroke();
   cork = loadImage ("cork-board.jpg");
-  font1 = createFont ("Georgia", 20);
+  font1 = createFont ("Quicksand-Regular.otf", 20);
+  printArray(PFont.list ());
 }
 void draw (){
   if (mouseX>0 & mouseY>0 & mouseX<450 & mouseY<600){
