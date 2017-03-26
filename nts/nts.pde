@@ -2,14 +2,16 @@ int state=0;
 int selected=2;
 int x = 150;
 int y = 150;
+PImage cork;
 Note nn = new Note();
 void setup (){
   size(600,750);
   frameRate(30);
   noStroke();
+  cork = loadImage ("cork-board.jpg");
 }
 void draw (){
-  if (mouseX>0 & mouseY>0 & mouseX<500 & mouseY<650){
+  if (mouseX>0 & mouseY>0 & mouseX<450 & mouseY<600){
     if (selected == 0)
     {
       x=mouseX;
@@ -20,7 +22,7 @@ void draw (){
       nn.moveToMouse();
     }
   }
-  background(255,255,255);
+  background(cork);
   nn.show();
   if (state==0){
     fill(255,181,197);
