@@ -24,6 +24,7 @@ void draw (){
 void mousePressed(){
   if(mouseX>nn.x&mouseX<nn.x+nn.side&mouseY>nn.y&mouseY<nn.y+nn.side)
   {
+    nn.changeColor();
     selected=1;
   }
 }
