@@ -4,6 +4,7 @@ int recentSelected=0;
 PImage cork;
 PFont font1;
 PImage newbutton;
+PImage trashbin;
 ArrayList<Note> notes = new ArrayList<Note>();
 void setup (){
   size(600,750);
@@ -11,6 +12,7 @@ void setup (){
   noStroke();
   cork = loadImage ("cork-board.jpg");
   newbutton = loadImage ("newbutton.png");
+  trashbin = loadImage ("trashbin.png");
   font1 = createFont ("Quicksand-Regular.otf", 20);
 }
 void draw (){
@@ -27,6 +29,7 @@ void draw (){
     n.show();
   }
   image(newbutton,500,25);
+  image(trashbin,510,660);
 }
 void mousePressed(){
   if(mouseX>500 & mouseY>25 & mouseX<580 & mouseY<105){
