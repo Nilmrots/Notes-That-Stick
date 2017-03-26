@@ -1,7 +1,8 @@
 int state=0;
-int selected=2;
+int selected=0;
 PImage cork;
 PFont font1;
+ArrayList<Note> notes = new ArrayList<Note>();
 Note nn = new Note();
 void setup (){
   size(600,750);
@@ -9,7 +10,6 @@ void setup (){
   noStroke();
   cork = loadImage ("cork-board.jpg");
   font1 = createFont ("Quicksand-Regular.otf", 20);
-  printArray(PFont.list ());
 }
 void draw (){
   if (mouseX>0 & mouseY>0 & mouseX<450 & mouseY<600){
@@ -20,6 +20,10 @@ void draw (){
   }
   background(cork);
   nn.show();
+  for(Note n : notes)
+  {
+    n.show();
+  }
 }
 void mousePressed(){
   if(mouseX>nn.x&mouseX<nn.x+nn.side&mouseY>nn.y&mouseY<nn.y+nn.side)
@@ -30,7 +34,7 @@ void mousePressed(){
 }
 void mouseReleased()
 {
-  selected = 2;
+  selected = 0;
 }
 void keyPressed()
 {

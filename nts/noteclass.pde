@@ -53,4 +53,8 @@ class Note
     textFont(font1);
     text(new String(words,0,wpoint),x+5,y+5,side-5,side-5);
   }
+  boolean isMouseInside()
+  {
+    return (mouseX>x & mouseX<x+side & mouseY>y & mouseY<y+side);
+  }
 }
