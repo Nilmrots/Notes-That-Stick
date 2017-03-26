@@ -40,8 +40,8 @@ class Note
   
   void moveToMouse()
   {
-    x = mouseX-(side/2);      //note is centered on the mouse
-    y = mouseY-(side/2);
+    x = mouseX-gripX;      //note is centered on the mouse
+    y = mouseY-gripY;
   }
   
   void changeColor()

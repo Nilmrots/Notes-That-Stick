@@ -12,6 +12,8 @@ PImage unchecked;
 PImage checked;
 ArrayList<Note> notes = new ArrayList<Note>();
 boolean paintMode = false;
+int gripX;
+int gripY;
 void setup (){
   size(600,750);
   frameRate(60);
@@ -28,7 +30,7 @@ void setup (){
   font1 = createFont ("Quicksand-Regular.otf", 20);
 }
 void draw (){
-  if(selected >= 0 & mouseX>Note.side/2 & mouseY>Note.side/2 & mouseX<width-(Note.side/2) & mouseY<height-(Note.side/2))
+  if(selected >= 0 & mouseX>gripX & mouseY>gripY & mouseX<width-(Note.side-gripX) & mouseY<height-(Note.side-gripY))
   {
     if(notes.get(selected).isMouseInside())
     {
@@ -88,6 +90,8 @@ void mousePressed(){
     {
       selected = i;
       recentSelected=i;
+      gripX = mouseX - notes.get(i).x;
+      gripY = mouseY - notes.get(i).y;
     }
   }
 }
