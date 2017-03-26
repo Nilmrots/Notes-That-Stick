@@ -8,6 +8,7 @@ class Note
   int clrstate;               //which color is currently selected
   int x;                      //coordinates of the note
   int y;
+  boolean[][] dark;           //which pixels are painted
   
   Note()
   {
@@ -16,6 +17,7 @@ class Note
     clrstate = 0;             //start on first color
     x = 50;                   //start in the top left corner
     y = 50;
+    dark = new boolean[side][side];//1 entry for each pixel in the square
   }
   
   void addChar(char c)
@@ -61,6 +63,17 @@ class Note
     textFont(font1);
     text(new String(words,0,wpoint),x+5,y+5,side-10,side-10);
     
+    for(int i = 0; i < side; i++)//draw the painted parts of the note
+    {
+      for(int j = 0; j < side; j++)
+      {
+        if(dark[i][j])        //if this pixel is painted
+        {
+          rect(x+i,y+j,1,1);  //make it black
+        }
+      }
+    }
+    
     rect(x+125,y+125,25,25);  //draw the color change button
     fill(255);
     text("C",x+130,y+128,25,25);
@@ -76,4 +89,13 @@ class Note
     return (mouseX>x+125 & mouseX<x+side & mouseY>y+125 & mouseY<y+side);
   }
   
+  void paint()                //paints the area around the mouse
+  {
+    dark[mouseX][mouseY] = true;
+  }
+  
+  void erase()                //removes paint from the area around the mouse
+  {
+    dark[mouseX][mouseY] = false;
+  }
 }
