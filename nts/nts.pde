@@ -7,6 +7,9 @@ PImage newbutton;
 PImage trashbin;
 PImage handbutton;
 PImage drawbutton;
+PImage newlist;
+PImage unchecked;
+PImage checked;
 ArrayList<Note> notes = new ArrayList<Note>();
 boolean paintMode = false;
 void setup (){
@@ -19,6 +22,9 @@ void setup (){
   trashbin = loadImage ("trashbin.png");
   handbutton = loadImage ("handbutton.png");
   drawbutton = loadImage ("drawbutton.png");
+  newlist = loadImage("ChecklistButton.png");
+  unchecked = loadImage("Unchecked.png");
+  checked = loadImage("Checked.png");
   font1 = createFont ("Quicksand-Regular.otf", 20);
 }
 void draw (){
@@ -52,10 +58,14 @@ void draw (){
   image(trashbin,510,660);
   image(handbutton,15,660);
   image(drawbutton,105,660);
+  image(newlist,500,120);
 }
 void mousePressed(){
   if(mouseX>500 & mouseY>25 & mouseX<580 & mouseY<105){
     notes.add(new Note());
+  }
+  if(mouseX>500 & mouseY>120 & mouseX<580 & mouseY<200){
+    notes.add(new Checklist());
   }
   if(mouseX>15 & mouseY>660 & mouseX<95 & mouseY<740){
     paintMode = false;
