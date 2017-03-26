@@ -52,9 +52,16 @@ class Note
     fill(0);
     textFont(font1);
     text(new String(words,0,wpoint),x+5,y+5,side-10,side-10);
+    rect(x+125,y+125,25,25);
+    fill(255);
+    text("C",x+130,y+128,25,25);
   }
   boolean isMouseInside()
   {
     return (mouseX>x & mouseX<x+side & mouseY>y & mouseY<y+side);
+  }
+  boolean isMouseOnButton()
+  {
+    return (mouseX>x+125 & mouseX<x+side & mouseY>y+125 & mouseY<y+side);
   }
 }

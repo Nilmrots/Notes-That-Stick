@@ -12,9 +12,6 @@ void setup (){
   cork = loadImage ("cork-board.jpg");
   newbutton = loadImage ("newbutton.png");
   font1 = createFont ("Quicksand-Regular.otf", 20);
-  notes.add(new Note());
-  notes.add(new Note());
-  notes.add(new Note());
 }
 void draw (){
   if(selected >= 0 & mouseX>Note.side/2 & mouseY>Note.side/2 & mouseX<width-(Note.side/2) & mouseY<height-(Note.side/2))
@@ -37,11 +34,15 @@ void mousePressed(){
   }
   for(int i = 0; i < notes.size(); i++)
   {
-    if(notes.get(i).isMouseInside())
+    if(notes.get(i).isMouseOnButton())
+    {
+      notes.get(i).changeColor();
+      recentSelected=i;
+    }
+    else if(notes.get(i).isMouseInside())
     {
       selected = i;
       recentSelected=i;
-      notes.get(selected).changeColor();
     }
   }
 }
