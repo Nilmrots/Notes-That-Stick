@@ -4,7 +4,7 @@ class Note
   final static int side = 150;//side length of the square note
   char[] words;               //contains characters written on the note
   int wpoint;                 //pointer indicating how many characters have been written so far
-  color[] clrs = {color(250,250,125), color(250,125,250), color(125,250,250)};//colors that can be chosen with the color button
+  color[] clrs = {color(255,255,175), color(255,200,200), color(190,225,255), color(190,255,175)};//colors that can be chosen with the color button
   int clrstate;               //which color is currently selected
   int x;                      //coordinates of the note
   int y;
@@ -45,7 +45,7 @@ class Note
   void changeColor()
   {
     clrstate++;               //move forward 1 color
-    if(clrstate > 2)          //if you have gone past the last color
+    if(clrstate > 3)          //if you have gone past the last color
     {
       clrstate = 0;           //go back to the beginning
     }
