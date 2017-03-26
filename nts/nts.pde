@@ -1,5 +1,6 @@
 int state=0;
 int selected=-1;
+int recentSelected=0;
 PImage cork;
 PFont font1;
 ArrayList<Note> notes = new ArrayList<Note>();
@@ -14,7 +15,7 @@ void setup (){
   notes.add(new Note());
 }
 void draw (){
-  if(selected >= 0)
+  if(selected >= 0 & mouseX>Note.side/2 & mouseY>Note.side/2 & mouseX<width-(Note.side/2) & mouseY<height-(Note.side/2))
   {
     if(notes.get(selected).isMouseInside())
     {
@@ -33,6 +34,8 @@ void mousePressed(){
     if(notes.get(i).isMouseInside())
     {
       selected = i;
+      recentSelected=i;
+      notes.get(selected).changeColor();
     }
   }
 }
@@ -42,15 +45,12 @@ void mouseReleased()
 }
 void keyPressed()
 {
-  if(selected >= 0)
+  if(keyCode == BACKSPACE)
   {
-    if(keyCode == BACKSPACE)
-    {
-      notes.get(selected).removeChar();
-    }
-    else if(keyCode != SHIFT)
-    {
-      notes.get(selected).addChar(key);
-    }
+    notes.get(recentSelected).removeChar();
+  }
+  else if(keyCode != SHIFT)
+  {
+    notes.get(recentSelected).addChar(key);
   }
 }
