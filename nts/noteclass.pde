@@ -33,8 +33,8 @@ class Note
   }
   void moveToMouse()
   {
-    x = mouseX;
-    y = mouseY;
+    x = mouseX-(side/2);
+    y = mouseY-(side/2);
   }
   void changeColor()
   {
