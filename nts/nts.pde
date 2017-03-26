@@ -51,6 +51,10 @@ void mousePressed(){
 }
 void mouseReleased()
 {
+  if(mouseX>510 & mouseY>660 & mouseX<590 & mouseY<740)
+  {
+    notes.remove(selected);
+  }
   selected = -1;
 }
 void keyPressed()
