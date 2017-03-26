@@ -5,6 +5,8 @@ PImage cork;
 PFont font1;
 PImage newbutton;
 PImage trashbin;
+PImage handbutton;
+PImage drawbutton;
 ArrayList<Note> notes = new ArrayList<Note>();
 void setup (){
   size(600,750);
@@ -13,6 +15,8 @@ void setup (){
   cork = loadImage ("cork-board.jpg");
   newbutton = loadImage ("newbutton.png");
   trashbin = loadImage ("trashbin.png");
+  handbutton = loadImage ("handbutton.png");
+  drawbutton = loadImage ("drawbutton.png");
   font1 = createFont ("Quicksand-Regular.otf", 20);
 }
 void draw (){
@@ -30,6 +34,8 @@ void draw (){
   }
   image(newbutton,500,25);
   image(trashbin,510,660);
+  image(handbutton,15,660);
+  image(drawbutton,105,660);
 }
 void mousePressed(){
   if(mouseX>500 & mouseY>25 & mouseX<580 & mouseY<105){
