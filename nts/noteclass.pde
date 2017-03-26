@@ -1,6 +1,6 @@
 class Note
 {
-  final int side = 150;
+  final static int side = 150;
   char[] words;
   int wpoint;
   color[] clrs = {color(240,240,120), color(240,120,240), color(120,240,240)};
