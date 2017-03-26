@@ -3,15 +3,14 @@ class Note
   final int side = 150;
   char[] words;
   int wpoint;
-  color[] clrs = {color(240,240,120), color(240,120,240), color(120,240,240)};
-  int clrstate;
+  color clr;
   int x;
   int y;
   Note()
   {
     words = new char[100];
     wpoint = 0;
-    clrstate = 0;
+    clr = color(240,240,120);
     x = 50;
     y = 50;
   }
@@ -36,20 +35,13 @@ class Note
     x = mouseX;
     y = mouseY;
   }
-  void changeColor()
-  {
-    clrstate++;
-    if(clrstate > 2)
-    {
-      clrstate = 0;
-    }
-  }
   void show()
   {
     noStroke();
-    fill(clrs[clrstate]);
+    fill(clr);
     rect(x,y,side,side);
     fill(0);
-    text(new String(words),x,y,side,side);
+    textFont(font1);
+    text(new String(words),x+5,y+5,side-5,side-5);
   }
 }
