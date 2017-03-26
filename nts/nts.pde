@@ -3,12 +3,14 @@ int selected=-1;
 int recentSelected=0;
 PImage cork;
 PFont font1;
+PImage newbutton;
 ArrayList<Note> notes = new ArrayList<Note>();
 void setup (){
   size(600,750);
   frameRate(30);
   noStroke();
   cork = loadImage ("cork-board.jpg");
+  newbutton = loadImage ("newbutton.png");
   font1 = createFont ("Quicksand-Regular.otf", 20);
   notes.add(new Note());
   notes.add(new Note());
@@ -27,8 +29,12 @@ void draw (){
   {
     n.show();
   }
+  image(newbutton,500,25);
 }
 void mousePressed(){
+  if(mouseX>500 & mouseY>25 & mouseX<580 & mouseY<105){
+    notes.add(new Note());
+  }
   for(int i = 0; i < notes.size(); i++)
   {
     if(notes.get(i).isMouseInside())
