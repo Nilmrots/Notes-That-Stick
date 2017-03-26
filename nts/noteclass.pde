@@ -116,4 +116,13 @@ class Note
       }
     }
   }
+  
+  int mouseOnCheck()
+  {
+    return -1;
+  }
+  
+  void flipCheck(int i)
+  {
+  }
 }

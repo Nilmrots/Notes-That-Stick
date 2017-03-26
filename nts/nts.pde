@@ -80,6 +80,10 @@ void mousePressed(){
       notes.get(i).changeColor();
       recentSelected=i;
     }
+    else if(notes.get(i).mouseOnCheck()>=0)
+    {
+      notes.get(i).flipCheck(notes.get(i).mouseOnCheck());
+    }
     else if(notes.get(i).isMouseInside())
     {
       selected = i;

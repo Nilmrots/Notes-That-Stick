@@ -42,4 +42,19 @@ class Checklist extends Note
       }
     }
   }
+  int mouseOnCheck()   //returns true if the mouse is in the checkbox
+  {
+    if(mouseX>x & mouseX<x+30 & mouseY>y & mouseY<y+side)
+    {
+      return (mouseY-y-5)/25;
+    }
+    else
+    {
+      return -1;
+    }
+  }
+  void flipCheck(int i)
+  {
+    checks[i] = !checks[i];
+  }
 }
