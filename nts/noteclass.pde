@@ -42,6 +42,6 @@ class Note
     rect(x,y,side,side);
     fill(0);
     textFont(font1);
-    text(new String(words),x+5,y+5,side-5,side-5);
+    text(new String(words,0,wpoint),x+5,y+5,side-5,side-5);
   }
 }
