@@ -8,10 +8,12 @@ PImage trashbin;
 PImage handbutton;
 PImage drawbutton;
 ArrayList<Note> notes = new ArrayList<Note>();
+boolean paintMode = false;
 void setup (){
   size(600,750);
-  frameRate(30);
+  frameRate(60);
   noStroke();
+  smooth();
   cork = loadImage ("cork-board.jpg");
   newbutton = loadImage ("newbutton.png");
   trashbin = loadImage ("trashbin.png");
@@ -24,7 +26,21 @@ void draw (){
   {
     if(notes.get(selected).isMouseInside())
     {
-      notes.get(selected).moveToMouse();
+      if(paintMode)
+      {
+        if(mouseButton == LEFT)
+        {
+          notes.get(selected).paint();
+        }
+        else if(mouseButton == RIGHT)
+        {
+          notes.get(selected).erase();
+        }
+      }
+      else
+      {
+        notes.get(selected).moveToMouse();
+      }
     }
   }
   background(cork);
@@ -40,6 +56,12 @@ void draw (){
 void mousePressed(){
   if(mouseX>500 & mouseY>25 & mouseX<580 & mouseY<105){
     notes.add(new Note());
+  }
+  if(mouseX>15 & mouseY>660 & mouseX<95 & mouseY<740){
+    paintMode = false;
+  }
+  if(mouseX>105 & mouseY>660 & mouseX<185 & mouseY<740){
+    paintMode = true;
   }
   for(int i = 0; i < notes.size(); i++)
   {

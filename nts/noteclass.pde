@@ -91,11 +91,29 @@ class Note
   
   void paint()                //paints the area around the mouse
   {
-    dark[mouseX][mouseY] = true;
+    if(mouseX-x>1 & mouseX-x<side-2 & mouseY-y>1 & mouseY-y<side-2)
+    {
+      for(int i = mouseX-x-2; i < mouseX-x+2; i++)
+      {
+        for(int j = mouseY-y-2; j < mouseY-y+2; j++)
+        {
+          dark[i][j] = true;
+        }
+      }
+    }
   }
   
   void erase()                //removes paint from the area around the mouse
   {
-    dark[mouseX][mouseY] = false;
+    if(mouseX-x>1 & mouseX-x<side-2 & mouseY-y>1 & mouseY-y<side-2)
+    {
+      for(int i = mouseX-x-2; i < mouseX-x+2; i++)
+      {
+        for(int j = mouseY-y-2; j < mouseY-y+2; j++)
+        {
+          dark[i][j] = false;
+        }
+      }
+    }
   }
 }
