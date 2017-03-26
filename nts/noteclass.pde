@@ -1,6 +1,6 @@
 class Note
 {
-  final int side = 100;
+  final int side = 150;
   char[] words;
   int wpoint;
   color clr;
